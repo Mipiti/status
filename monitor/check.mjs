@@ -123,6 +123,7 @@ async function main() {
   const windowEndMs = windowStartMs + cfg.windowDurationSec * 1000;
   const state = loadState();
   const transitions = [];
+  let firstIterationCommitted = false;
 
   while (Date.now() < windowEndMs) {
     const iterStart = Date.now();
@@ -163,24 +164,23 @@ async function main() {
 
     state.updatedAt = nowIso();
 
-    // Immediate commit on any state transition so readers see fresh data in ~30s.
     if (transitions.length > 0) {
       saveState(state);
       const msg = transitions.map((t) => `${t.id} -> ${t.to}`).join(', ');
       const pushed = commitAndPush(`status: ${msg}`);
       if (pushed) console.log(JSON.stringify({ ts: nowIso(), event: 'committed', msg }));
       transitions.length = 0;
+      firstIterationCommitted = true;
+    } else if (!firstIterationCommitted) {
+      saveState(state);
+      commitAndPush(`status: ${nowIso()}`);
+      firstIterationCommitted = true;
     }
 
     const elapsed = Date.now() - iterStart;
     const remaining = cfg.innerLoopIntervalSec * 1000 - elapsed;
     if (remaining > 0 && Date.now() + remaining < windowEndMs) await sleep(remaining);
   }
-
-  // End-of-window commit: refreshes lastCheckedAt timestamps even when
-  // nothing changed. Enables the staleness detector on the page.
-  saveState(state);
-  commitAndPush(`status: heartbeat ${nowIso()}`);
 }
 
 main().catch(() => {
