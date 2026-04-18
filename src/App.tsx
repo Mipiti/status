@@ -90,7 +90,7 @@ function Header() {
     <header className="w-full border-b border-slate-100 bg-white/70 backdrop-blur-xl sticky top-0 z-10">
       <div className="max-w-4xl mx-auto px-4 md:px-6 h-14 flex items-center gap-3">
         <a href="https://mipiti.io" className="flex items-center gap-2.5 shrink-0" aria-label="Mipiti home">
-          <img src="/mipiti-logo.svg" alt="" className="h-7 w-7" />
+          <img src={`${import.meta.env.BASE_URL}mipiti-logo.svg`} alt="" className="h-7 w-7" />
           <span className="font-display font-bold text-sm text-slate-900">Mipiti</span>
           <span className="font-mono text-[10px] tracking-wider uppercase text-slate-400 ml-1 pt-0.5">
             Status
