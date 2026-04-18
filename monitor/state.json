@@ -1,0 +1,19 @@
+{
+  "updatedAt": "2026-04-18T18:30:00.000Z",
+  "components": {
+    "web": {
+      "status": "operational",
+      "consecutiveFailures": 0,
+      "consecutiveSuccesses": 0,
+      "lastCheckedAt": "2026-04-18T18:30:00.000Z",
+      "lastChangedAt": "2026-04-18T18:30:00.000Z"
+    },
+    "api": {
+      "status": "operational",
+      "consecutiveFailures": 0,
+      "consecutiveSuccesses": 0,
+      "lastCheckedAt": "2026-04-18T18:30:00.000Z",
+      "lastChangedAt": "2026-04-18T18:30:00.000Z"
+    }
+  }
+}

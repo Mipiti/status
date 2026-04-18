@@ -1,0 +1,29 @@
+{
+  "canaries": [
+    "https://1.1.1.1",
+    "https://www.cloudflare.com",
+    "https://api.github.com/zen"
+  ],
+  "canaryThreshold": 2,
+  "innerLoopIntervalSec": 30,
+  "windowDurationSec": 290,
+  "timeoutSec": 10,
+  "failuresForDown": 2,
+  "successesForUp": 3,
+  "components": [
+    {
+      "id": "web",
+      "name": "Web App",
+      "description": "mipiti.io — the main web application",
+      "url": "https://mipiti.io/",
+      "expectedStatus": 200
+    },
+    {
+      "id": "api",
+      "name": "API",
+      "description": "api.mipiti.io — REST API and streaming endpoints",
+      "url": "https://api.mipiti.io/health",
+      "expectedStatus": 200
+    }
+  ]
+}

@@ -5,11 +5,9 @@ export interface Component {
   name: string;
   description: string;
   status: StatusLevel;
-  lastCheckedAt?: string;
-  upstream?: {
-    vendor: string;
-    statusUrl: string;
-  };
+  lastCheckedAt: string;
+  lastChangedAt: string;
+  stale: boolean;
 }
 
 export interface Incident {
