@@ -6,7 +6,7 @@
   ],
   "canaryThreshold": 2,
   "innerLoopIntervalSec": 30,
-  "windowDurationSec": 290,
+  "windowDurationSec": 260,
   "timeoutSec": 10,
   "failuresForDown": 2,
   "successesForUp": 3,
