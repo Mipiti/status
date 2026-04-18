@@ -2,6 +2,7 @@ import type { StatusLevel } from '../types';
 
 interface Props {
   overallStatus: StatusLevel;
+  overallStale: boolean;
   lastCheckedAt: string;
 }
 
@@ -38,8 +39,16 @@ const STATUS_COPY: Record<StatusLevel, { headline: string; tone: string; dotClas
   },
 };
 
-export function StatusBanner({ overallStatus, lastCheckedAt }: Props) {
-  const copy = STATUS_COPY[overallStatus];
+const STALE_COPY = {
+  headline: 'Monitoring Delayed',
+  tone: 'Automated checks have not reported recently. Status shown may not reflect current reality.',
+  dotClass: 'bg-slate-400',
+};
+
+export function StatusBanner({ overallStatus, overallStale, lastCheckedAt }: Props) {
+  const copy = overallStale
+    ? { ...STALE_COPY, pulse: false }
+    : STATUS_COPY[overallStatus];
 
   return (
     <section className="relative rounded-3xl bg-white shadow-soft-lg border border-slate-100 px-8 py-14 md:py-16 overflow-hidden animate-slide-up">
@@ -54,7 +63,7 @@ export function StatusBanner({ overallStatus, lastCheckedAt }: Props) {
             aria-hidden="true"
           />
           <span className="font-mono text-xs tracking-wider uppercase text-slate-500">
-            Live Status
+            {overallStale ? 'Stale Data' : 'Live Status'}
           </span>
         </div>
 

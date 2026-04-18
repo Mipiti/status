@@ -1,0 +1,31 @@
+name: Monitor
+
+# Runs every 5 minutes (GitHub Actions cron floor). Inside each run, the
+# check script loops at shorter intervals for tighter detection granularity
+# and commits state.json on every transition.
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f  # v6.3.0
+        with:
+          node-version: '24'
+
+      - run: node monitor/check.mjs
