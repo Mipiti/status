@@ -2,9 +2,7 @@ import config from '../monitor/config.json';
 import rawState from '../monitor/state.json';
 import type { Component, StatusLevel } from './types';
 
-// Two-times the monitor heartbeat — catches "monitor is broken" without
-// false-positives on cron drift.
-const STALE_THRESHOLD_MS = 10 * 60 * 1000;
+const STALE_THRESHOLD_MS = 15 * 60 * 1000;
 
 interface RawComponentState {
   status: StatusLevel;
