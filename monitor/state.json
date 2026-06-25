@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-06-25T06:26:41.315Z",
+  "updatedAt": "2026-06-25T07:48:16.981Z",
   "components": {
     "web": {
       "status": "operational",
       "consecutiveFailures": 0,
-      "consecutiveSuccesses": 469,
-      "lastCheckedAt": "2026-06-25T06:26:41.314Z",
+      "consecutiveSuccesses": 470,
+      "lastCheckedAt": "2026-06-25T07:48:16.981Z",
       "lastChangedAt": "2026-05-29T01:18:32.432Z"
     },
     "api": {
       "status": "operational",
       "consecutiveFailures": 0,
-      "consecutiveSuccesses": 272,
-      "lastCheckedAt": "2026-06-25T06:26:41.315Z",
+      "consecutiveSuccesses": 273,
+      "lastCheckedAt": "2026-06-25T07:48:16.981Z",
       "lastChangedAt": "2026-06-09T17:48:59.475Z"
     }
   }
