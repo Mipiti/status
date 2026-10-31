@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-10-31T09:34:58.186Z",
+  "updatedAt": "2026-10-31T09:36:58.150Z",
   "components": {
     "web": {
-      "status": "operational",
-      "consecutiveFailures": 0,
-      "consecutiveSuccesses": 105,
-      "lastCheckedAt": "2026-10-31T09:34:58.186Z",
-      "lastChangedAt": "2026-10-30T18:41:18.325Z"
+      "status": "major_outage",
+      "consecutiveFailures": 2,
+      "consecutiveSuccesses": 0,
+      "lastCheckedAt": "2026-10-31T09:36:58.150Z",
+      "lastChangedAt": "2026-10-31T09:36:58.150Z"
     },
     "api": {
-      "status": "operational",
-      "consecutiveFailures": 0,
-      "consecutiveSuccesses": 245,
-      "lastCheckedAt": "2026-10-31T09:34:58.186Z",
-      "lastChangedAt": "2026-10-29T20:30:25.030Z"
+      "status": "major_outage",
+      "consecutiveFailures": 2,
+      "consecutiveSuccesses": 0,
+      "lastCheckedAt": "2026-10-31T09:36:58.150Z",
+      "lastChangedAt": "2026-10-31T09:36:58.150Z"
     }
   }
 }
